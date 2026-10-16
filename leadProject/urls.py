@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from leadApp import views
+from rest_framework.authtoken import views as auth_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('lead',views.LeadCreateListView.as_view(),name="lead_view"),
     path('lead/detail/<int:pk>',views.LeadRetrieveUpdateDeleteView.as_view(),name="lead_detail_view"),
+    path('token',auth_view.obtain_auth_token)
 ]

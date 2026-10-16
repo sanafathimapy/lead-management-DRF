@@ -1,3 +1,17 @@
+# --------------TOKEN AUTH---------------
+###
+POST http://127.0.0.1:8000/token
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "password":"admin@123"
+}
+
+###
+@token=a858ebfc811789940c7a1d0601ebc53c9cb6cde7
+
+# -------------CRUD OPERATION WITH BASIC AUTHETICATION--------- 
 # API call for lead create
 ###
 POST http://127.0.0.1:8000/lead
@@ -17,7 +31,7 @@ Authorization: Basic admin:admin@123
 # API call for list all leads
 ###
 GET  http://127.0.0.1:8000/lead
-Authorization: Basic admin:admin@123
+Authorization: Token {{token}}
 
 # API call for retrieve one detail from lead
 ###
