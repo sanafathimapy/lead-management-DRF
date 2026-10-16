@@ -1,0 +1,82 @@
+# API call for lead create
+###
+POST http://127.0.0.1:8000/lead
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+{
+    "name":"Rahul",
+    "phone":9087654532,
+    "email":"rahul@gmail.com",
+    "course":"Data science",
+    "source":"Referral",
+    "status":"Contacted",
+    "notes":"morning batch preferred"
+}
+
+# API call for list all leads
+###
+GET  http://127.0.0.1:8000/lead
+Authorization: Basic admin:admin@123
+
+# API call for retrieve one detail from lead
+###
+GET http://127.0.0.1:8000/lead/detail/1
+Authorization: Basic admin:admin@123
+
+# API call for update lead
+###
+PUT http://127.0.0.1:8000/lead/detail/2
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+  {
+    "id": 2,
+    "name": "Anu",
+    "phone": "9876543211",
+    "email": "anu123@gmail.com",
+    "course": "python full stack",
+    "source": "Website",
+    "status": "New",
+    "added_date": "2026-10-15T06:47:12.986410Z",
+    "notes": "morning batch preferred"
+  }
+
+
+# API call for delete lead
+###
+DELETE  http://127.0.0.1:8000/lead/detail/1
+Authorization: Basic admin:admin@123
+
+# API call for ordering leads based on name
+###
+GET http://127.0.0.1:8000/lead?ordering=name
+Authorization: Basic admin:admin@123
+
+
+# API call for ordering leads based on added date in ascending order
+###
+GET http://127.0.0.1:8000/lead?ordering=added_date
+Authorization: Basic admin:admin@123
+
+# API call for ordering leads based on added date in descending order
+###
+GET  http://127.0.0.1:8000/lead?ordering=-added_date
+Authorization: Basic admin:admin@123
+
+# API call for filter leads based on status
+###
+GET  http://127.0.0.1:8000/lead?search=New
+Authorization: Basic admin:admin@123
+
+# API call for filter leads based on status
+###
+GET  http://127.0.0.1:8000/lead?search=Contacted
+Authorization: Basic admin:admin@123
+
+# API call for filter leads based on status and source
+###
+GET  http://127.0.0.1:8000/lead?search=Contacted&source=Referral    #with mentioning filter set in views
+# or
+# GET  http://127.0.0.1:8000/lead?search=Contacted Referral  -without mentioning filterset in views
+Authorization: Basic admin:admin@123
